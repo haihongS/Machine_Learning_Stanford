@@ -1,1 +1,3 @@
 # Machine_Learning_Stanford
+
+在Coursera上学习Machine learning的课程，并把编程作业上传到github上供自己复习及他人参考。
