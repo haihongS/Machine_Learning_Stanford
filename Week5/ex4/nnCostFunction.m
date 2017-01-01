@@ -123,9 +123,21 @@ delta2=Theta2'*delta3.*(a2.*(1-a2));
 d2=zeros(size(Theta2));
 d2=delta3*(a2');
 
+for i=1:num_labels
+	for j=2:hidden_layer_size+1
+		d2(i,j)=d2(i,j)+lambda*Theta2(i,j);
+	end
+end
+
 delta2=[delta2(2:hidden_layer_size+1,:)];
 d1=zeros(size(Theta1));
 d1=delta2*(a1');
+
+for i=1:hidden_layer_size
+	for j=2:input_layer_size+1
+		d1(i,j)=d1(i,j)+lambda*Theta1(i,j);
+	end
+end
 
 Theta2_grad=1/m*d2;
 Theta1_grad=1/m*d1;
